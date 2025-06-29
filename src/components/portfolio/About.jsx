@@ -35,12 +35,10 @@ const About = () => {
               applications with modern technologies and user-centered design principles.
             </p>
             <p className="text-lg text-white/80 leading-relaxed">
-              When I'm not coding, you'll find me exploring new design trends, contributing to 
-              open-source projects, or sharing knowledge with the developer community through 
-              blog posts and mentoring.
+              I'm usually exploring new technologies, following industry trends, and expanding my knowledge through self-learning.
             </p>
             <div className="flex flex-wrap gap-4 mt-8">
-              {['Problem Solver', 'Team Player', 'Creative Thinker', 'Tech Enthusiast'].map((trait, index) => (
+              {['Team Player', 'Critical Thinker', 'Tech Enthusiast','Curious Explorer'].map((trait, index) => (
                 <motion.span
                   key={trait}
                   initial={{ opacity: 0, scale: 0 }}
@@ -66,7 +64,7 @@ const About = () => {
               <img
                 alt="Developer workspace with multiple monitors and modern setup"
                 className="rounded-2xl shadow-2xl w-full h-80 object-cover"
-                src="https://images.unsplash.com/photo-1590085327097-cf67e44baab3" />
+                src="\images\photo-frontend-developer-on-desk-learning-exploring.webp" />
             </div>
             <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-pink-600/20 rounded-2xl transform rotate-3"></div>
           </motion.div>

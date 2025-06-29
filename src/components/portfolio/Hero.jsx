@@ -39,7 +39,7 @@ const Hero = () => {
               <img
                 alt="Professional headshot of Jeremy Chin"
                 className="w-full h-full rounded-full object-cover border-4 border-gradient-to-r from-purple-400 to-pink-400 shadow-2xl"
-                src="\images\profile.jpeg" />
+                src="\images\profile.webp" />
               <div className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-400/20 to-pink-400/20 animate-pulse"></div>
             </motion.div>
           </div>
@@ -77,7 +77,7 @@ const Hero = () => {
             >
               View My Work
             </Button>
-            <a href="mailto:alex@example.com">
+            <a href="mailto:csfuh0212@gmail.com">
               <Button
                 variant="outline"
                 className="border-2 border-white/30 text-white hover:bg-white/10 px-8 py-3 rounded-full text-lg font-semibold backdrop-blur-sm"

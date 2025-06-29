@@ -12,7 +12,7 @@ const SectionHeader = ({ title }) => (
     viewport={{ once: true }}
     className="text-center mb-16"
   >
-    <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+    <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent pb-1">
       {title}
     </h2>
     <div className="w-24 h-1 bg-gradient-to-r from-purple-400 to-pink-400 mx-auto rounded-full"></div>
@@ -30,9 +30,13 @@ const ProjectCard = ({ project, index }) => (
     }`}
   >
     <div className="relative h-48 overflow-hidden">
-      {index === 0 && <img  alt="E-Commerce Platform" className="w-full h-full object-cover" src="https://images.unsplash.com/photo-1693044101113-ac0901b1f0c0" />}
-      {index === 1 && <img  alt="Task Management App" className="w-full h-full object-cover" src="https://images.unsplash.com/photo-1608403810239-ac22e2c3bac7" />}
-      {index === 2 && <img  alt="Portfolio Website" className="w-full h-full object-cover" src="https://images.unsplash.com/photo-1688760871131-29afc15029ec" />}
+      {index === 0 && <img  alt="Portfolio Website" className="w-full h-full object-cover" src="\images\landing-page-web-development.webp" />}
+      {index === 1 && <img  alt="Portfolio Website" className="w-full h-full object-cover" src="\images\website-application-integration.webp" />}
+      {index === 2 && <img  alt="E-Commerce Platform" className="w-full h-full object-cover" src="\images\nirvanamalaysiagroup.webp" />}
+      {index === 3 && <img  alt="Task Management App" className="w-full h-full object-cover" src="\images\clicky-website.webp" />}
+      {index === 4 && <img  alt="Portfolio Website" className="w-full h-full object-cover" src="\images\cimed-healthcare.webp" />}
+      {index === 5 && <img  alt="Portfolio Website" className="w-full h-full object-cover" src="\images\hksb-website.webp" />}
+
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
       {project.featured && (
         <div className="absolute top-4 right-4">
@@ -70,7 +74,7 @@ const ProjectCard = ({ project, index }) => (
             Live Demo
           </Button>
         </a>
-        <a href={project.codeUrl} target="_blank" rel="noopener noreferrer">
+        {/* <a href={project.codeUrl} target="_blank" rel="noopener noreferrer">
           <Button
             variant="outline"
             size="sm"
@@ -79,7 +83,7 @@ const ProjectCard = ({ project, index }) => (
             <Github className="w-4 h-4 mr-2" />
             Code
           </Button>
-        </a>
+        </a> */}
       </div>
     </div>
   </motion.div>

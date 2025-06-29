@@ -48,7 +48,7 @@ const Skills = () => {
                     className="bg-gradient-to-r from-purple-400 to-pink-400 h-2 rounded-full"
                   ></motion.div>
                 </div>
-                <span className="text-sm text-white/60 mt-2 block">{skill.level}%</span>
+                {/* <span className="text-sm text-white/60 mt-2 block">{skill.level}%</span> */}
               </div>
             </motion.div>
           ))}
