@@ -1,0 +1,2 @@
+## Pages
+- [Jeremy Chin - Front-end Developer & Designer](/): Front-end Developer and UI/UX Designer creating amazing digital experiences. Specializing in React, Node.js, and modern web technologies.
