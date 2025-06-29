@@ -8,6 +8,7 @@ import Projects from '@/components/portfolio/Projects';
 import Contact from '@/components/portfolio/Contact';
 import Footer from '@/components/portfolio/Footer';
 import { Toaster } from '@/components/ui/toaster';
+import ContactButton from '@/components/portfolio/ContactButton';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         </main>
         <Footer />
         <Toaster />
+        <ContactButton />
       </div>
     </>
   );

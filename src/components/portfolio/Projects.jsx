@@ -12,10 +12,78 @@ const SectionHeader = ({ title }) => (
     viewport={{ once: true }}
     className="text-center mb-16"
   >
-    <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent pb-1">
-      {title}
-    </h2>
-    <div className="w-24 h-1 bg-gradient-to-r from-purple-400 to-pink-400 mx-auto rounded-full"></div>
+    <div className="inline-block">
+      <motion.h2 
+        initial={{ opacity: 0, scale: 0.8 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ 
+          duration: 1.2, 
+          ease: "easeOut",
+          delay: 0.2 
+        }}
+        whileHover={{ 
+          scale: 1.05,
+          transition: { duration: 0.3 }
+        }}
+        viewport={{ once: true }}
+        className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-pink-400 to-yellow-300 bg-clip-text text-transparent relative cursor-pointer"
+      >
+        <motion.span
+          initial={{ backgroundPosition: "0% 50%" }}
+          animate={{ 
+            backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] 
+          }}
+          transition={{ 
+            duration: 4, 
+            repeat: Infinity, 
+            ease: "linear" 
+          }}
+          className="bg-gradient-to-r from-pink-400 to-yellow-300 bg-300% bg-clip-text text-transparent"
+          style={{ backgroundSize: "300% 100%" }}
+        >
+          {title}
+        </motion.span>
+        
+        {/* Animated glow effect */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: [0, 0.5, 0] }}
+          transition={{ 
+            duration: 2, 
+            repeat: Infinity, 
+            ease: "easeInOut",
+            delay: 1 
+          }}
+          viewport={{ once: true }}
+          className="absolute inset-0 bg-gradient-to-r from-pink-400/20 to-yellow-300/20 blur-xl -z-10"
+        />
+      </motion.h2>
+    </div>
+    
+    <motion.div 
+      initial={{ width: 0 }}
+      whileInView={{ width: "6rem" }}
+      transition={{ 
+        duration: 1.5, 
+        ease: "easeOut",
+        delay: 0.8 
+      }}
+      viewport={{ once: true }}
+      className="h-1 bg-gradient-to-r from-pink-400 to-yellow-300 mx-auto rounded-full relative overflow-hidden"
+    >
+      {/* Animated shine effect on the underline */}
+      <motion.div
+        initial={{ x: "-100%" }}
+        animate={{ x: "200%" }}
+        transition={{ 
+          duration: 2, 
+          repeat: Infinity, 
+          ease: "easeInOut",
+          delay: 2 
+        }}
+        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent w-1/3"
+      />
+    </motion.div>
   </motion.div>
 );
 

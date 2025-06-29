@@ -20,7 +20,7 @@ export const projects = [
     description: 'Built landing page using Nuxt, Tailwind CSS and GSAP with responsive design.',
     tech: ['Nuxt', 'GSAP', 'SEO'],
     featured: true,
-    liveUrl: 'https://nirvanamalaysiagroup.com/',
+    liveUrl: '#',
     codeUrl: 'https://github.com'
   },
   {
@@ -28,7 +28,7 @@ export const projects = [
     description: 'Nuxt-based application with API integration and Tailwind design.',
     tech: ['Nuxt', 'Tailwind', 'API'],
     featured: true,
-    liveUrl: 'https://nirvanamalaysiagroup.com/',
+    liveUrl: '#',
     codeUrl: 'https://github.com'
   },
   {

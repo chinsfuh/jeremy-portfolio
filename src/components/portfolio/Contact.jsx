@@ -11,20 +11,151 @@ const SectionHeader = ({ title, description }) => (
     viewport={{ once: true }}
     className="text-center mb-16"
   >
-    <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent pb-1">
-      {title}
-    </h2>
-    <div className="w-24 h-1 bg-gradient-to-r from-purple-400 to-pink-400 mx-auto rounded-full"></div>
-    <p className="text-xl text-white/70 mt-6 max-w-2xl mx-auto">
-      {description}
-    </p>
+    <div className="inline-block">
+      <motion.h2 
+        initial={{ opacity: 0, scale: 0.8 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ 
+          duration: 1.2, 
+          ease: "easeOut",
+          delay: 0.2 
+        }}
+        whileHover={{ 
+          scale: 1.05,
+          transition: { duration: 0.3 }
+        }}
+        viewport={{ once: true }}
+        className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-pink-400 to-yellow-300 bg-clip-text text-transparent relative cursor-pointer"
+      >
+        <motion.span
+          initial={{ backgroundPosition: "0% 50%" }}
+          animate={{ 
+            backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] 
+          }}
+          transition={{ 
+            duration: 4, 
+            repeat: Infinity, 
+            ease: "linear" 
+          }}
+          className="bg-gradient-to-r from-pink-400 to-yellow-300 bg-300% bg-clip-text text-transparent"
+          style={{ backgroundSize: "300% 100%" }}
+        >
+          {title}
+        </motion.span>
+        
+        {/* Animated glow effect */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: [0, 0.5, 0] }}
+          transition={{ 
+            duration: 2, 
+            repeat: Infinity, 
+            ease: "easeInOut",
+            delay: 1 
+          }}
+          viewport={{ once: true }}
+          className="absolute inset-0 bg-gradient-to-r from-pink-400/20 to-yellow-300/20 blur-xl -z-10"
+        />
+      </motion.h2>
+    </div>
+    
+    <motion.div 
+      initial={{ width: 0 }}
+      whileInView={{ width: "6rem" }}
+      transition={{ 
+        duration: 1.5, 
+        ease: "easeOut",
+        delay: 0.8 
+      }}
+      viewport={{ once: true }}
+      className="h-1 bg-gradient-to-r from-pink-400 to-yellow-300 mx-auto rounded-full relative overflow-hidden"
+    >
+      {/* Animated shine effect on the underline */}
+      <motion.div
+        initial={{ x: "-100%" }}
+        animate={{ x: "200%" }}
+        transition={{ 
+          duration: 2, 
+          repeat: Infinity, 
+          ease: "easeInOut",
+          delay: 2 
+        }}
+        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent w-1/3"
+      />
+    </motion.div>
   </motion.div>
+);
+
+const AnimatedBackground = () => (
+  <div className="absolute inset-0 overflow-hidden pointer-events-none">
+
+    {/* Floating dots */}
+    {Array.from({ length: 12 }).map((_, i) => (
+      <motion.div
+        key={`dot-${i}`}
+        className="absolute w-1 h-1 bg-purple-400/30 rounded-full"
+        style={{
+          left: `${Math.random() * 100}%`,
+          top: `${Math.random() * 100}%`,
+        }}
+        animate={{
+          y: [0, -30, 0],
+          x: [0, Math.random() > 0.5 ? 20 : -20, 0],
+          opacity: [0.3, 0.8, 0.3],
+        }}
+        transition={{
+          duration: 4 + Math.random() * 4,
+          repeat: Infinity,
+          ease: 'easeInOut',
+          delay: Math.random() * 2,
+        }}
+      />
+    ))}
+
+    {/* Curved path lines */}
+    {Array.from({ length: 3 }).map((_, i) => (
+      <motion.svg
+        key={`curve-${i}`}
+        className="absolute w-full h-full opacity-10"
+        style={{
+          left: `${i * 30}%`,
+          top: `${i * 20}%`,
+        }}
+        viewBox="0 0 400 400"
+      >
+        <motion.path
+          d={`M 0,${100 + i * 50} Q 200,${50 + i * 30} 400,${150 + i * 40}`}
+          stroke="url(#gradient)"
+          strokeWidth="1"
+          fill="none"
+          initial={{ pathLength: 0 }}
+          animate={{ pathLength: [0, 1, 0] }}
+          transition={{
+            duration: 6 + i * 2,
+            repeat: Infinity,
+            ease: 'easeInOut',
+            delay: i * 1.5,
+          }}
+        />
+        <defs>
+          <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="rgb(168, 85, 247)" stopOpacity="0" />
+            <stop offset="50%" stopColor="rgb(236, 72, 153)" stopOpacity="0.5" />
+            <stop offset="100%" stopColor="rgb(251, 191, 36)" stopOpacity="0" />
+          </linearGradient>
+        </defs>
+      </motion.svg>
+    ))}
+  </div>
 );
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-20 bg-black/20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="py-20 bg-black/20 relative overflow-hidden">
+      {/* Animated Background */}
+      <AnimatedBackground />
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <SectionHeader
           title="Let's Work Together"
           description="Ready to bring your ideas to life? Let's discuss your next project and create something amazing together."
@@ -36,7 +167,7 @@ const Contact = () => {
           viewport={{ once: true }}
           className="max-w-2xl mx-auto"
         >
-          <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
+          <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 relative">
             <div className="grid md:grid-cols-3 gap-8 mb-8">
               <div className="text-center">
                 <div className="w-16 h-16 bg-gradient-to-r from-purple-600/20 to-pink-600/20 rounded-full flex items-center justify-center mx-auto mb-4">
